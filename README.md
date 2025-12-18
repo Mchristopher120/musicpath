@@ -52,7 +52,7 @@ git clone https://github.com/Mchristopher120/musicpath.git
 cd musicpath
 ```
 
-3. Abra o arquivo `index.html` no navegador
+3. Abra o arquivo `index.html` no navegador (open with Live Server)
 
 > Não é necessário instalar dependências ou rodar build.
 
