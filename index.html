@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Music Path - Treinamento Auditivo</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="sketch.js"></script>
+</head>
+<body>
+  <div id="app">
+
+    <div id="menuUI" class="screen">
+      <h1>Music Path</h1>
+      <button id="menuStartBtn" class="btn primary">INICIAR SISTEMA</button>
+      <button id="menuHowBtn" class="btn secondary">COMO JOGAR</button>
+    </div>
+
+    <div id="howUI" class="screen hidden">
+      <h2>Protocolo de Missão</h2>
+      <p>
+        Sua tarefa é identificar a frequência sonora invisível.
+        <br><br>
+        1. <strong>Escute:</strong> Use o mouse para encontrar o som (Modo Navegar).<br>
+        2. <strong>Trace:</strong> Alterne para o Modo Desenhar (Espaço) e desenhe a linha.<br>
+        3. <strong>Envie:</strong> Confirme para verificar a precisão.
+      </p>
+      <button id="howBackBtn" class="btn">Voltar ao Menu</button>
+    </div>
+
+    <div id="selectUI" class="screen hidden">
+      <h2>Calibrar Sensores</h2>
+
+      <div class="diffButtonsRow">
+        <button id="easyBtn" class="diffBtn">Iniciante</button>
+        <button id="mediumBtn" class="diffBtn selectedDiff">Normal</button>
+        <button id="hardBtn" class="diffBtn">Ouvido Absoluto</button>
+      </div>
+
+      <div class="selectActions">
+        <button id="selectBackBtn" class="btn">Voltar</button>
+        <button id="selectContinueBtn" class="btn primary">Confirmar</button>
+      </div>
+    </div>
+
+    <div id="gameUI" class="screen hidden">
+      
+      <button id="gameBackBtn" class="btn-exit">ᐸ MENU</button>
+
+      <h2 id="levelLabel">Nível 1</h2>
+
+      <div class="gameButtonsRow">
+          <button id="replayBtn" class="btn">Repetir Som</button>
+          <button id="playBtn" class="btn">Tocar Seu Traço</button>
+          <button id="clearBtn" class="btn">Limpar</button>
+          <button id="submitBtn" class="btn primary">Enviar Análise</button>
+          
+          <button id="desvendarBtn" class="btn secondary">Desvendar</button>
+          <button id="giveUpBtn" class="btn hidden">Desistir</button>
+      </div>
+
+      <div class="devRow">
+        <button id="devBackBtn" class="btn hidden">Anterior</button>
+        <button id="devNextBtn" class="btn hidden">Próximo</button>
+      </div>
+    </div>
+
+    <div id="messageBox" role="status" aria-live="polite"></div>
+
+    <div id="canvasWrapper">
+      <div id="canvasHolder"></div>
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,270 @@
+:root {
+  --bg-dark: #050b14;
+  --panel-bg: rgba(16, 28, 45, 0.85);
+  --glass-border: rgba(100, 200, 255, 0.1);
+  --neon-blue: #00f3ff;
+  --neon-purple: #bc13fe;
+  --neon-green: #0aff60;
+  --neon-red: #ff0055;
+  --text-main: #e0f7ff;
+  --text-muted: #6b8eae;
+  --font-ui: 'Rajdhani', sans-serif;
+  --font-tech: 'Orbitron', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%; margin: 0;
+  font-family: var(--font-ui);
+  background: radial-gradient(circle at center, #0f1c2e 0%, #020408 100%);
+  color: var(--text-main);
+  overflow: hidden; /* Evita scroll na página inteira */
+}
+
+#app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+/* --- Telas (Panels) --- */
+.screen {
+  background: var(--panel-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 0 30px rgba(0, 243, 255, 0.05), inset 0 0 20px rgba(0,0,0,0.5);
+  margin-bottom: 20px;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.hidden { display: none !important; }
+
+/* --- Tipografia --- */
+h1 {
+  font-family: var(--font-tech);
+  font-size: 48px;
+  margin: 0 0 20px 0;
+  background: linear-gradient(90deg, var(--neon-blue), #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(0, 243, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-family: var(--font-tech);
+  color: var(--neon-blue);
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+p { font-size: 18px; line-height: 1.6; color: var(--text-muted); }
+
+/* --- Botões Gerais --- */
+.btn {
+  background: rgba(0, 243, 255, 0.1);
+  border: 1px solid var(--neon-blue);
+  color: var(--neon-blue);
+  padding: 12px 24px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-tech);
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.2s ease;
+  margin: 5px;
+  min-width: 120px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:hover {
+  background: var(--neon-blue);
+  color: #000;
+  box-shadow: 0 0 15px var(--neon-blue);
+}
+
+.btn.primary {
+  background: var(--neon-blue);
+  color: #050b14;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+}
+.btn.primary:hover {
+  background: #fff;
+  box-shadow: 0 0 20px #fff;
+}
+
+.btn.secondary {
+  border-color: var(--text-muted);
+  color: var(--text-muted);
+}
+.btn.secondary:hover {
+  border-color: #fff;
+  color: #fff;
+  background: rgba(255,255,255,0.1);
+}
+
+/* --- Botão de Voltar ao Menu (System Exit) --- */
+.btn-exit {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-muted);
+  padding: 8px 16px;
+  font-family: var(--font-tech);
+  font-size: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+
+.btn-exit:hover {
+  background: rgba(255, 0, 85, 0.1); /* Fundo avermelhado sutil */
+  border-color: var(--neon-red);
+  color: var(--neon-red);
+  box-shadow: 0 0 10px rgba(255, 0, 85, 0.2);
+}
+
+/* --- Botões de Dificuldade --- */
+.diffButtonsRow { display: flex; justify-content: center; gap: 15px; margin: 20px 0; }
+.diffBtn {
+  background: transparent;
+  border: 1px solid var(--text-muted);
+  color: var(--text-muted);
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-family: var(--font-tech);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.diffBtn:hover { border-color: var(--neon-blue); color: var(--neon-blue); }
+
+.diffBtn.selectedDiff {
+  background: rgba(0, 243, 255, 0.15);
+  border-color: var(--neon-blue);
+  color: var(--neon-blue);
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.2);
+}
+
+/* --- HUD e Scoreboard --- */
+#scoreboard {
+  font-family: var(--font-tech);
+  background: rgba(0,0,0,0.3);
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: 1px solid rgba(255,255,255,0.1);
+  margin-top: 10px;
+}
+#sb-level, #sb-score, #sb-precision, #sb-combo {
+  color: var(--neon-green);
+  text-shadow: 0 0 5px rgba(10, 255, 96, 0.5);
+}
+
+/* --- Canvas Container --- */
+#canvasWrapper {
+  position: relative;
+  padding: 4px;
+  background: linear-gradient(45deg, #1a2a3a, #000);
+  border-radius: 14px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+  margin-top: 15px;
+}
+#canvasWrapper::before {
+  content: ''; position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px;
+  background: linear-gradient(45deg, transparent, var(--neon-blue), transparent);
+  z-index: -1; border-radius: 16px; opacity: 0.3;
+}
+
+canvas {
+  display: block;
+  border-radius: 10px;
+  cursor: crosshair;
+}
+
+/* --- Mensagens --- */
+#messageBox {
+  min-height: 40px;
+  margin: 10px 0;
+  font-family: var(--font-tech);
+  font-size: 20px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+}
+
+/* --- Botão de MODO (O destaque do jogo) --- */
+#modeBtn {
+  display: block;
+  margin: 20px auto;
+  font-family: var(--font-tech);
+  font-size: 18px;
+  font-weight: 700;
+  width: 280px;
+  padding: 16px;
+  border-width: 2px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  background: rgba(0,0,0,0.6);
+  position: relative;
+  z-index: 10;
+}
+
+/* Estilo NAVEGAR (Azul/Ciano) */
+#modeBtn.mode-nav {
+  border-color: var(--neon-blue);
+  color: var(--neon-blue);
+  box-shadow: 0 0 15px rgba(0, 243, 255, 0.2), inset 0 0 10px rgba(0, 243, 255, 0.1);
+}
+
+#modeBtn.mode-nav:hover {
+  background: rgba(0, 243, 255, 0.1);
+  box-shadow: 0 0 25px rgba(0, 243, 255, 0.6);
+  transform: scale(1.02);
+}
+
+/* Estilo DESENHAR (Rosa/Roxo) */
+#modeBtn.mode-draw {
+  border-color: var(--neon-red);
+  color: var(--neon-red);
+  box-shadow: 0 0 15px rgba(255, 0, 85, 0.3), inset 0 0 10px rgba(255, 0, 85, 0.1);
+}
+
+#modeBtn.mode-draw:hover {
+  background: rgba(255, 0, 85, 0.1);
+  box-shadow: 0 0 30px rgba(255, 0, 85, 0.7);
+  transform: scale(1.02);
+}
+
+/* Dica de atalho */
+#modeBtn::after {
+  content: '[ ESPAÇO ] Alternar Modo';
+  display: block;
+  font-size: 10px;
+  margin-top: 4px;
+  opacity: 0.6;
+  font-family: sans-serif;
+  letter-spacing: 1px;
+}
