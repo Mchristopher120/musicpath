@@ -1,4 +1,4 @@
-# 🎮 Interactive Path Game
+# 🎮 Music Path Game
 
 Um jogo web interativo focado em **precisão, coordenação e progressão**, onde o jogador deve seguir caminhos dinâmicos alternando entre diferentes modos de interação. O projeto foi desenvolvido para rodar diretamente no navegador e está disponível publicamente via deploy.
 
@@ -43,13 +43,13 @@ A experiência é reforçada por uma interface futurista, HUD dinâmico e sistem
 1. Clone este repositório:
 
 ```bash
-git clone https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git
+git clone https://github.com/Mchristopher120/musicpath.git
 ```
 
 2. Acesse a pasta do projeto:
 
 ```bash
-cd NOME_DO_REPOSITORIO
+cd musicpath
 ```
 
 3. Abra o arquivo `index.html` no navegador
